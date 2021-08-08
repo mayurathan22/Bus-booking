@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}" />
 </head>
 <body class="min-h-screen login-background">
-    <nav class="p-6 md:px-10 flex justify-between">
+    <nav class="p-6 md:px-10 flex justify-between mb-5">
         <ul class="flex items-center">
             <li>
                 <a href="/home" class="p-3">Bus Booking</a>
