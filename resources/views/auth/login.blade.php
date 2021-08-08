@@ -1,13 +1,3 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bus Booking</title>
-
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}" />
-</head> -->
 @extends('layouts.app')
 
 @section('content')
@@ -15,7 +5,7 @@
     
         <div class="sm:flex justify-between bg-white rounded-lg shadow-2xl w-2/3 my-10 sm:my-0 border-8 border-blue-700">
             <div class="sm:w-1/2">
-                <img src="{{ asset('/images/bus.jpg') }}" class="shadow-2xl" />
+                <img src="{{ asset('/images/bus.jpg') }}" class="min-h-full shadow-2xl" />
             </div>
             <div class="sm:w-1/2 p-10">
             
@@ -67,6 +57,4 @@
                 </div>
             </div>
         </div>
-        @endsection
-    <!-- </body>
-</html> -->
+@endsection
