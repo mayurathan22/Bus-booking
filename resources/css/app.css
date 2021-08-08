@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.login-background {
+    /* background-color: red; */
+    background-image: url('../../public/images/cover.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}

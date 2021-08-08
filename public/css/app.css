@@ -31867,6 +31867,13 @@ video {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.login-background {
+  /* background-color: red; */
+  background-image: url(/images/cover.png?30fb93d067077c33ce26c6a9ea72617c);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;
