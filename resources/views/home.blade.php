@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    admin dashboard ...
+                    {{ __('You are logged in!') }}
                 </div>
             </div>
         </div>
