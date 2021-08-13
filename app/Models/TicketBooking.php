@@ -13,5 +13,9 @@ class TicketBooking extends Model
     protected $guarded = [
         'id',
     ];
-    protected $fillable=['schedule_id','seat_no'];
+    protected $fillable=[
+        'schedule_id',
+        'seat_no',
+        'mobile_number'
+    ];
 }

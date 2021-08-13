@@ -13,7 +13,12 @@ class Bus extends Model
     protected $guarded = [
         'id',
     ];
-    protected $fillable=['agency_name','seat_no','description'];
+    protected $fillable=[
+        'agency_name',
+        'seat_no',
+        'price',
+        'description'
+    ];
 
     public function busschedule(){
         return $this->belongsToMany(BusSchedule::class);

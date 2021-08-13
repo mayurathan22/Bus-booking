@@ -17,6 +17,7 @@ class CreateBusesTable extends Migration
             $table->id();
             $table->string('agency_name')->unique();
             $table->integer('seat_no');
+            $table->integer('price');
             $table->string('description');
             $table->timestamps();
         });

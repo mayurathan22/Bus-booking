@@ -18,6 +18,7 @@ class CreateTicketBookingsTable extends Migration
             $table->unsignedBigInteger('schedule_id');
             $table->foreign('schedule_id')->references('id')->on('bus_schedules');
             $table->integer('seat_no')->unique();
+            $table->tinyInteger('mobile_number')->unique();
             $table->timestamps();
         });
     }
