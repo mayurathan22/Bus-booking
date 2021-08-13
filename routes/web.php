@@ -18,6 +18,18 @@ Route::get('/home', function() {
     return view('home');
 });
 
+Route::get('/bus', function() {
+    return view('bus');
+});
+
+Route::get('/bus-book', function() {
+    return view('bus-book');
+});
+
+Route::get('/admin', function() {
+    return view('admin-dashboard');
+});
+
 Route::get('/', function() {
     return view('auth.login');
 });

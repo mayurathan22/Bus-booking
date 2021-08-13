@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="532" height="152" viewBox="0 0 532 152">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_10" data-name="Rectangle 10" width="186" height="114" transform="translate(-0.372)" fill="#fff" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+    <linearGradient id="linear-gradient" x1="1" y1="0.5" x2="0.217" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#1c39bb"/>
+      <stop offset="1" stop-color="#1c39bb" stop-opacity="0.102"/>
+    </linearGradient>
+  </defs>
+  <g id="Group_1" data-name="Group 1" transform="translate(-1192 -164)">
+    <rect id="Rectangle_9" data-name="Rectangle 9" width="215" height="140" transform="translate(1192 164)" fill="#1c39bb"/>
+    <text id="BUS" transform="translate(1198 267)" fill="#fff" font-size="100" font-family="Nunito-SemiBold, Nunito" font-weight="600"><tspan x="0" y="0">BUS</tspan></text>
+    <text id="fly" transform="translate(1433 253)" fill="#5b5b5b" font-size="80" font-family="SegoeUI-Italic, Segoe UI" font-style="italic" letter-spacing="0.05em"><tspan x="0" y="0">fly</tspan></text>
+    <g id="Bus_Image" data-name="Bus Image" transform="translate(-61 9)">
+      <g id="Mask_Group_1" data-name="Mask Group 1" transform="translate(1599.372 193)" clip-path="url(#clip-path)">
+        <g id="tourist-bus" transform="translate(0.515 9.997)">
+          <path id="Path_7" data-name="Path 7" d="M173.678,23.2H13.36C5.993,23.2,0,28.82,0,35.723V86.9c0,8.566,7.741,12.627,13.56,14.039,1.353,9.137,9.739,16.2,19.855,16.2a20.051,20.051,0,0,0,18.849-12.393h82.692a20.533,20.533,0,0,0,37.7,0H183.7a3.24,3.24,0,0,0,3.34-3.13V35.723C187.038,28.82,181.045,23.2,173.678,23.2Zm6.68,43.734H167.153a3.309,3.309,0,0,1-3.408-3.193V38.95h16.613ZM33.415,110.874c-7.11,0-12.939-5.227-13.346-11.8a2.842,2.842,0,0,0,0-1.466c.406-6.568,6.236-11.8,13.347-11.8,7.37,0,13.367,5.62,13.367,12.527S40.785,110.874,33.415,110.874ZM73.723,38.95h36.609V66.938H73.723Zm-6.68,27.988H23.452a3.309,3.309,0,0,1-3.408-3.193V38.95h47V66.938ZM147.221,38.95V63.874a3.175,3.175,0,0,1-3.269,3.064H117.012V38.95ZM110.332,73.2V98.481H73.723V73.2Zm43.476,37.677c-7.373,0-13.371-5.621-13.371-12.529s6-12.527,13.371-12.527,13.367,5.62,13.367,12.527S161.179,110.874,153.808,110.874Zm20.043-12.393c0-.045,0-.09,0-.136,0-10.359-8.993-18.787-20.046-18.787s-20.051,8.428-20.051,18.787c0,.046,0,.091,0,.136h-16.75V73.2h26.939c5.486,0,9.949-4.182,9.949-9.323V35.821a3.24,3.24,0,0,0-3.34-3.13H16.7a3.24,3.24,0,0,0-3.34,3.13V63.745c0,5.212,4.525,9.453,10.088,9.453H67.043V98.481H53.458c0-.045,0-.09,0-.136,0-10.359-8.993-18.787-20.046-18.787-9.633,0-17.7,6.4-19.616,14.9C10.723,93.467,6.68,91.325,6.68,86.9V35.723a6.487,6.487,0,0,1,6.68-6.26H173.678a6.763,6.763,0,0,1,5.84,3.228H160.405a3.24,3.24,0,0,0-3.34,3.13V63.745c0,5.212,4.525,9.453,10.088,9.453h13.205v3.245h-3.252a3.136,3.136,0,1,0,0,6.26h3.252V98.481h-6.507Z" transform="translate(0 -23.204)" fill="#1c39bb"/>
+        </g>
+      </g>
+      <path id="Path_8" data-name="Path 8" d="M7.354.2H78.2l1.326,3.754S23.9,2.273,7.354.862,7.354.2,7.354.2Z" transform="translate(1511.472 271.048)" fill="url(#linear-gradient)"/>
+      <path id="Path_9" data-name="Path 9" d="M7.354.2H78.2l1.326,3.754S23.9,2.273,7.354.862,7.354.2,7.354.2Z" transform="translate(1523.472 283.048)" fill="url(#linear-gradient)"/>
+      <path id="Path_10" data-name="Path 10" d="M7.354.2H78.2l1.326,3.754S23.9,2.273,7.354.862,7.354.2,7.354.2Z" transform="translate(1530.472 289.048)" fill="url(#linear-gradient)"/>
+      <path id="Path_11" data-name="Path 11" d="M7.354.2H78.2l1.326,3.754S23.9,2.273,7.354.862,7.354.2,7.354.2Z" transform="translate(1517.472 277.048)" fill="url(#linear-gradient)"/>
+      <path id="Rectangle_12" data-name="Rectangle 12" d="M0,0H14a0,0,0,0,1,0,0V25a0,0,0,0,1,0,0H4a4,4,0,0,1-4-4V0A0,0,0,0,1,0,0Z" transform="translate(1765 220)" fill="#1c39bb"/>
+      <circle id="Ellipse_1" data-name="Ellipse 1" cx="10" cy="10" r="10" transform="translate(1744 268)" fill="#1c39bb"/>
+      <circle id="Ellipse_2" data-name="Ellipse 2" cx="10" cy="10" r="10" transform="translate(1623 268)" fill="#1c39bb"/>
+      <path id="Rectangle_13" data-name="Rectangle 13" d="M0,0H28a0,0,0,0,1,0,0V21a4,4,0,0,1-4,4H0a0,0,0,0,1,0,0V0A0,0,0,0,1,0,0Z" transform="translate(1718 220)" fill="#1c39bb"/>
+      <rect id="Rectangle_14" data-name="Rectangle 14" width="34" height="25" transform="translate(1675 220)" fill="#1c39bb"/>
+      <path id="Rectangle_15" data-name="Rectangle 15" d="M0,0H45a0,0,0,0,1,0,0V25a0,0,0,0,1,0,0H4a4,4,0,0,1-4-4V0A0,0,0,0,1,0,0Z" transform="translate(1621 220)" fill="#1c39bb"/>
+    </g>
+  </g>
+</svg>

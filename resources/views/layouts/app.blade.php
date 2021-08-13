@@ -18,64 +18,75 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" 
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
 </head>
-<body class="min-h-screen login-background">
-    <div id="app">
-        <nav class="p-6 md:px-10 flex justify-between mb-5">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    Bus Booking
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+<style> 
+.login-background {
+    background-image: url('{{ asset('images/cover.png') }}');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+</style>
+<body class="login-background">
+    <div id="app"  >
+		<nav class="navbar navbar-expand-lg bg-white navbar-fixed-top px-sm-5 shadow" >
+            <a class="navbar-brand" href="{{ url('/') }}">
+                   <img src="{{ asset('images/Logo.svg') }}" class="w-25" />
+            </a>
+			<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navBar">
+				<span class="navbar-toggler-icon"></span>
+			</button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="flex items-center">
+			<div class="collapse navbar-collapse justify-content-end " id="navBar">
+				<ul class="navbar-nav  align-items-center">
+                    @guest
+                        @if (Route::has('login'))
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('login') }}" ><h5 class="mb-0 pb-0">Login</h5></a>	
+                            </li>
+                        @endif
+                        @if (Route::has('register'))
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('register') }}">
+                                    <button type="button" class="btn btn-outline-primary"><h5 class="mb-0 py-1">Signup</h5></button>
+                                </a>	
+                            </li>
+                        @endif
+                    @else
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ Auth::user()->name }}
+                            </a>
 
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="flex items-center">
-                        <!-- Authentication Links -->
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="mx-2">
-                                    <a class="p-3" href="{{ route('login') }}">Login</a>
-                                </li>
-                            @endif
-
-                            @if (Route::has('register'))
-                                <li class="mx-2">
-                                    <a class="text-blue-700 px-3 py-2 rounded-sm border-2 border-blue-700" href="{{ route('register') }}">Signup</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
-            </div>
-        </nav>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
+                    @endguest
+					
+					
+				</ul>
+			</div>
+		</nav>
 
         <main class="py-4">
             @yield('content')
         </main>
-    </div>
+
+	</div>
+    
 </body>
 </html>
