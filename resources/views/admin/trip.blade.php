@@ -6,23 +6,59 @@
         <div class="col-md-9">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="mb-0 font-weight-bold"><i class="fas fa-shuttle-van mr-2"></i></i>Trips</h5>
+                    <div class="row">
+                        <div class="col-12 d-flex justify-content-between">
+                            <h5 class="v font-weight-bold"><i class="fas fa-shuttle-van mr-2"></i></i>Trips</h5>
+                            <button class="btn btn-success justify-end" type="button" data-toggle="collapse" data-target="#collapseAdd" aria-expanded="false" aria-controls="collapseAdd" >
+                                <i class="fas fa-plus-circle mr-2"></i>Add Trip
+                            </button>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    <div class="card-header mt-3 mb-2">
-                        <h5 class="mb-0 font-weight-bold"><i class="fas fa-plus-circle mr-2"></i></i>Add Trip</h5>
-                    </div>
                     
-                    <div class="card border-0 rounded px-3 py-3 my-2 shadow" >
-                        <div class="row mx-5">
-                            Add Form Loading...
+                    <div class="collapse" id="collapseAdd">
+                        <div class="card border-0 rounded px-3 py-3 my-2 shadow" >
+                            <div class="row mx-5">
+                                <div class="col-12">
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="bus">Select Bus</label>
+                                            <select  class="form-control" id="bus" aria-describedby="bus" placeholder="Select Bus"> </select>
+                                        </div>
+                                        
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label for="departure">Departure</label>
+                                                    <select  class="form-control" id="departure" aria-describedby="departure" placeholder="Select Departure"> </select>                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                <label for="arrival">Arrival</label>
+                                                    <select  class="form-control" id="arrival" aria-describedby="arrival" placeholder="Select arrival"> </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label for="time">Departure Time</label>
+                                                    <input type="text" class="form-control" id="time" aria-describedby="time" placeholder="Enter Departure Time">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row my-2">
+                                            <div class="col-12 d-flex justify-content-end">
+                                                <button type="submit"  class="btn btn-success justify-end">Add Trip</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     
@@ -76,9 +112,9 @@
                     <a href="{{ route('admin-bus') }}" class="list-group-item list-group-item-action">
                             <h5 class="mb-0 font-weight-bold"><i class="fas fa-bus mr-2"></i>Bus</h5>
                     </a>
-                    <a href="{{ route('admin-route') }}" class="list-group-item list-group-item-action">
+                    <!-- <a href="{{ route('admin-route') }}" class="list-group-item list-group-item-action">
                         <h5 class="mb-0 font-weight-bold"><i class="fas fa-route mr-2"></i>Routes</h5>
-                    </a>
+                    </a> -->
                     <a  href="#" class="list-group-item list-group-item-action" disabled>
                         <h5 class="mb-0 font-weight-bold"><i class="fas fa-user-cog mr-2"></i>Settings</h5>
                     </a>
