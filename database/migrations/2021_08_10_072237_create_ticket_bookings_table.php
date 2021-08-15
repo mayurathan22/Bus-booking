@@ -15,9 +15,9 @@ class CreateTicketBookingsTable extends Migration
     {
         Schema::create('ticket_bookings', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('schedule_id');
-            $table->foreign('schedule_id')->references('id')->on('bus_schedules');
-            $table->integer('seat_no')->unique();
+            $table->unsignedBigInteger('trip_id');
+            $table->foreign('trip_id')->references('id')->on('trips');
+            $table->string('passenger_name');
             $table->tinyInteger('mobile_number')->unique();
             $table->timestamps();
         });

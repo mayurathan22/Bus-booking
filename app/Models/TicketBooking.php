@@ -14,8 +14,9 @@ class TicketBooking extends Model
         'id',
     ];
     protected $fillable=[
-        'schedule_id',
-        'seat_no',
+        'trip_id',
+        'passenger_name',
+        // 'seat_no',
         'mobile_number'
     ];
 }

@@ -26,11 +26,11 @@ class HomeController extends Controller
         // dd(auth()->user()->roleusers->roles->id);
         if(auth()->user()->roleusers->roles->id==1){
 
-            return view('admin-dashboard');
+            return view('admin.bus');
         }
         else
         {
-            return view('home');
+            return view('user.dashboard');
         }
     }
 }

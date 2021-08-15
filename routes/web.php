@@ -18,29 +18,50 @@ Route::get('/home', function() {
     return view('home');
 });
 
-Route::get('/bus', function() {
-    return view('bus');
-});
 
-Route::get('/bus-book', function() {
-    return view('bus-book');
-});
+Auth::routes();
 
-Route::get('/admin', function() {
-    return view('admin-dashboard');
-});
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+// Auth::routes();
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// Login, Register
 Route::get('/', function() {
     return view('auth.login');
 });
 
-Route::get('/signup', function() {
-    return view('auth.signup');
-});
-Auth::routes();
+// Route::get('/register', function() {
+//     // return view('auth.register');
+// });
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Admin Routes
+Route::get('/admin/trip', function() {
+    return view('admin.trip');
+})->name('admin-trip');
 
-Auth::routes();
+Route::get('/admin/bus', function() {
+    return view('admin.bus');
+})->name('admin-bus');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/admin/route', function() {
+    return view('admin.route');
+})->name('admin-route');
+
+
+// user Routes
+Route::get('/user/dashboard', function() {
+    return view('user.dashboard');
+})->name('user-dashboard');
+
+Route::get('/user/bus', function() {
+    return view('user.bus');
+})->name('user-bus');
+
+Route::get('/user/bus/book', function() {
+    return view('user.bus-book');
+})->name('user-bus-book');
+
+
+

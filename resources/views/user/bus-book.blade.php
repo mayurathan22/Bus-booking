@@ -9,17 +9,23 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="row">
-                            <div class="col-md-8 mx-auto mt-3">
-                                <div class="w-100 bg-primary rounded px-2 text-center text-white py-1 mb-2">
-                                       <h4 class="mb-0">
+                            <div class="col-sm-12 col-md-8 mx-auto mt-3">
+                            <div class="row">
+                                    <div class="col-12 bg-primary rounded text-center text-white py-1 mb-2">
+                                       <h4 class="mb-0 ">
                                            Front
                                        </h4> 
                                     </div>
-                                <div class="d-flex flex-wrap">
-                                    @for ($i = 0; $i < 55; $i++)
-                                    <div class="bg-secondary m-1 rounded px-2 d-flex align-items-center justify-content-center text-white" style="width:35px; height:35px">{{ $i }}</div>
-                                    @endfor
-                                </div>
+</div>
+                                    <div class="row pl-2">
+                                        @for ($i = 1; $i <= 50; $i++) 
+                                            @if($i  == 3 || $i  == 8 || $i  == 13 || $i  == 18 || $i  == 23 || $i  == 28 || $i  == 33 || $i  == 38 || $i  == 43 )
+                                            <div  class="col-2 bg-white m-1 rounded  d-flex align-items-center justify-content-center text-white" style="width:35px; height:35px"></div>
+                                            @else
+                                            <div class="col-2 border border-primary m-1 m-1 rounded  d-flex align-items-center justify-content-center text-dark" style="width:35px; height:35px">{{ $i }}</div>
+                                            @endif
+                                        @endfor
+                                    </div>
                             </div>
                             
                         </div>
@@ -28,12 +34,12 @@
                                 <div>
                                     
                                         <div class="d-flex my-1">
-                                            <div class="ww-100 bg-secondary px-2 text-secondary">*</div>
+                                            <div class="ww-100 border border-primary px-2 text-white">*</div>
                                             <h5 class="mb-0 ml-2">Available</h5>
                                         </div> 
                                     
                                         <div class="d-flex my-1">
-                                            <div class="ww-100 bg-danger px-2 text-danger">*</div>
+                                            <div class="ww-100 bg-primary px-2 text-primary">*</div>
                                             <h5 class="mb-0 ml-2">Booked</h5>
                                         </div> 
                                 </div>
@@ -81,12 +87,12 @@
                                         </div>
                                         
                                         
-                                        <button type="submit" class="btn btn-success btn-block">Confirm Booking</button>
+                                        <button type="submit"  class="btn btn-success btn-block">Confirm Booking</button>
                                     </form>
                                 </div>
                                 <div class="col-4 d-flex align-items-center justify-content-center">
                                         <div>
-                                            <h4><i class="fas fa-dollar-sign mr-2"></i>Total Fare</h4>
+                                            <h4><i class="fas fa-dollar-sign mr-2" id="myBtn"></i>Total Fare</h4>
                                             <h2 class="text-danger">Rs 3000</h2>
                                         </div>
                                 </div>
@@ -99,4 +105,5 @@
         </div>
     </div>
 </div>
+
 @endsection

@@ -2,11 +2,21 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-11">
-            <div class="card border-0 rounded px-3 py-3 my-2 shadow" >
-                <h3 class="text-primary"><i class="fas fa-bus-alt mx-2"></i>Available Buses</h3>
-                <div class="card border-0 rounded px-3 py-3 my-2 shadow" >
+    <div class="row">
+        <div class="col-md-9">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0 font-weight-bold"><i class="fas fa-bus-alt mr-2"></i></i>Available Buses</h5>
+                </div>
+
+                <div class="card-body">
+                    @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+
+                    <div class="card border-0 rounded px-3 py-3 my-2 shadow" >
                     <div class="row">
                         <div class="col-sm-2">
                             <h6 class="text-secondary mb-1 pb-0"><i class="fas fa-bus-alt mr-2"></i>Bus</h6> 
@@ -39,10 +49,26 @@
                         </div>
                     </div>
                 </div>
+
+                </div>
             </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <div class="list-group">
+                    <a href="{{ route('user-dashboard') }}" class="list-group-item list-group-item-action">
+                        <h5 class="mb-0 font-weight-bold"><i class="fas fa-user mr-2"></i></i>Dashboard</h5>
+                    </a>
+                    <a href="{{ route('user-bus') }}" class="list-group-item list-group-item-action active">
+                            <h5 class="mb-0 font-weight-bold"><i class="fas fa-bus mr-2"></i>Bus</h5>
+                    </a>
+                    <a  href="#" class="list-group-item list-group-item-action" disabled>
+                        <h5 class="mb-0 font-weight-bold"><i class="fas fa-user-cog mr-2"></i>Settings</h5>
+                    </a>
+                    </div>
+                </div>
             
         </div>
     </div>
-    
 </div>
 @endsection

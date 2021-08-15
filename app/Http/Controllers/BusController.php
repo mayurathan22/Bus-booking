@@ -9,7 +9,7 @@ class BusController extends Controller
 {
     public function index(){
         $buses=Bus::paginate(10);
-        // return BusResource::collection($buses);
+        // return view ('bus');
     }
 
     public function create(){
@@ -23,12 +23,11 @@ class BusController extends Controller
        $bus->description=$request->description ;
 
         if($bus->save()){
-            return new BusResource($bus);
+            // return new BusResource($bus);
         }
     }
     public function show($id){
         $bus=Bus::findOrFail($id);
-        return new BusResource($bus);
     }
 
     public function edit(){
@@ -42,14 +41,12 @@ class BusController extends Controller
        $bus->description=$request->description ;
 
         if($bus->save()){
-            return new BusResource($bus);
         }
 
     }
     public function destroy($id){
        $bus=Bus::findOrFail($id);
        if($bus->delete()){
-           return new BusResource($bus);
        }
     }
 }

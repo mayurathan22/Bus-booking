@@ -20,8 +20,8 @@ class Bus extends Model
         'description'
     ];
 
-    public function busschedule(){
-        return $this->belongsToMany(BusSchedule::class);
+    public function trip(){
+        return $this->belongsToMany(Trip::class);
     }
 
     public function busroute(){
