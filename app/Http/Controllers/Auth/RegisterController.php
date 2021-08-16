@@ -81,7 +81,7 @@ class RegisterController extends Controller
         return $user;
     }
     public function redirectTo(){
-        return '/home';
+        return '/user/bus';
     }
 
 }

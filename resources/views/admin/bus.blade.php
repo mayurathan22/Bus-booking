@@ -5,11 +5,12 @@
     <div class="row">
         <div class="col-md-9">
             <div class="card">
+                @if(auth()->user()->id==1)
                 <div class="card-header">
                     <div class="row">
                         <div class="col-12 d-flex justify-content-between">
                             <h5 class="mt-2 font-weight-bold"><i class="fas fa-shuttle-van mr-2"></i></i>Buses</h5>
-                            <button class="btn btn-success justify-end" type="button" data-toggle="collapse" data-target="#collapseAdd" aria-expanded="false" aria-controls="collapseAdd" >
+                            <button class="btn btn-success justify-end" type="button" data-toggle="collapse" data-target="#collapseAdd" aria-expanded="false" aria-controls="collapseAdd" onclick="{{ url("admin/bus/add") }}" >
                                 <i class="fas fa-plus-circle mr-2"></i>Add Bus
                             </button>
                         </div>
@@ -22,28 +23,28 @@
                         <div class="card border-0 rounded px-3 py-3 my-2 shadow" >
                             <div class="row mx-5">
                                 <div class="col-12">
-                                    <form action="" method="POST">
+                                    <form action={{route('admin-bus')}} method="POST" >
                                         @csrf
                                             <div class="form-group">
                                                 <label for="name">Bus Name</label>
-                                                <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Enter Bus Name">
+                                                <input type="text" class="form-control" name="name" id="name" aria-describedby="name" placeholder="Enter Bus Name" required>
                                             </div>
                                             
                                             <div class="form-group">
                                                 <label for="description">Description</label>
-                                                <input type="text" class="form-control" id="description" aria-describedby="description" placeholder="Enter Bus Description">
+                                                <input type="text" class="form-control" name="description" id="description" aria-describedby="description" placeholder="Enter Bus Description" required>
                                             </div>
                                             <div class="row">
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
                                                         <label for="seats">Total Seats</label>
-                                                        <input type="text" class="form-control" id="seats" aria-describedby="seats" placeholder="Enter Total Seats Count">
+                                                        <input type="text" class="form-control"name="seat_no" id="seat_no" aria-describedby="seats" placeholder="Enter Total Seats Count" required>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
                                                         <label for="fare">Fare</label>
-                                                        <input type="text" class="form-control" id="fare" aria-describedby="fare" placeholder="Enter fare">
+                                                        <input type="text" class="form-control" name="price" id="price" aria-describedby="fare" placeholder="Enter fare" required>
                                                     </div>
                                                 </div>
                                             </div>
@@ -70,6 +71,7 @@
                     </div>
 
                 </div>
+                
             </div>
         </div>
         <div class="col-md-3">
@@ -91,6 +93,9 @@
                 </div>
             
         </div>
+        @else
+        <h3> unauthorized user</h3>
+        @endif
     </div>
 </div>
 @endsection

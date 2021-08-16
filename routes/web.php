@@ -1,7 +1,8 @@
 <?php
 
+use App\Http\Controllers\BusController;
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,8 +15,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/home', function() {
-    return view('home');
+Route::get('/user/bus', function() {
+    return view('user.bus');
 });
 
 
@@ -25,7 +26,10 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 // Auth::routes();
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/admin/bus', [App\Http\Controllers\HomeController::class, 'adminIndex'])->name('admin-home');
+
+// Route::get('/user/bus', [App\Http\Controllers\HomeController::class, 'userDashboard'])->name('user-home');
+
 
 // Login, Register
 Route::get('/', function() {
@@ -41,9 +45,15 @@ Route::get('/admin/trip', function() {
     return view('admin.trip');
 })->name('admin-trip');
 
-Route::get('/admin/bus', function() {
-    return view('admin.bus');
-})->name('admin-bus');
+// Route::get('/admin/bus', function() {
+//     return view('admin.bus');
+// })->name('admin-bus');
+
+Route::post('/admin/bus', [BusController::class,'store'])->name('admin-bus');
+
+// Route::post('/user/bus', [BusController::class,'store'])->name('user-bus');
+
+
 
 Route::get('/admin/route', function() {
     return view('admin.route');
