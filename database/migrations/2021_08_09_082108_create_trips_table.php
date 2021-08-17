@@ -19,7 +19,7 @@ class CreateTripsTable extends Migration
             $table->foreign('bus_id')->references('id')->on('buses');
             $table->string('from');
             $table->string('to');
-            $table->integer('available_seat');
+            // $table->integer('available_seat');
             $table->time('estimate_time');
             $table->timestamps();
         });

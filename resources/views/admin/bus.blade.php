@@ -38,7 +38,7 @@
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
                                                         <label for="seats">Total Seats</label>
-                                                        <input type="text" class="form-control"name="seat_no" id="seat_no" aria-describedby="seats" placeholder="Enter Total Seats Count" required>
+                                                        <input type="text" class="form-control" name="total_seat" id="total_seat" aria-describedby="seats" placeholder="Enter Total Seats Count" required>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-6">
@@ -55,7 +55,6 @@
                                                 </div>
                                             </div>
                                     </form>
-
                                 </div>
                             </div>
                         </div>
@@ -65,13 +64,33 @@
                         <h5 class="mb-0 font-weight-bold"><i class="fas fa-bus mr-2"></i></i>Available Buses</h5>
                     </div>
                     <div class="card border-0 rounded px-3 py-3 my-2 shadow" >
-                    <div class="row mx-5">
-                            Available Bus Loading...
+                        <div class="row ">
+                                <div class="col-sm-2">
+                                    <h6 class="text-secondary mb-1 pb-0"><i class="fas fa-bus-alt mr-2"></i>Bus</h6> 
+                                    <h5 class="my-0 py-0">Raja Travels</h5>
+                                </div>
+                                <div class="col-sm-2">
+                                    <h6 class="text-secondary mb-1 pb-0"><i class="fas fa-bus-alt mr-2"></i>Description</h6> 
+                                    <h5 class="my-0 py-0">AC, Luxury</h5>
+                                </div>
+                                <div class="col-sm-2">
+                                    <h6 class="text-secondary mb-1 pb-0"><i class="fas fa-dollar-sign mr-2"></i>Fare</h6> 
+                                
+                                    <h5 class="mt-0 pt-0 text-danger">Rs 1500</h5>
+                                </div>
+                                <div class="col-sm-2">
+                                    <h6 class="text-secondary mb-1 pb-0"><i class="fas fa-chair mr-2"></i>Total Seats</h6> 
+                                
+                                    <h5 class="mt-0 pt-0 text-success">50</h5>
+                                </div>
+                                <div class="col-sm-3 d-flex align-items-end">
+                                    <button class="btn btn-danger btn-block shadow">Delete</button>
+                                </div>
+                            
                         </div>
                     </div>
 
                 </div>
-                
             </div>
         </div>
         <div class="col-md-3">

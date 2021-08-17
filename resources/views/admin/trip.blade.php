@@ -9,7 +9,7 @@
                     <div class="row">
                         <div class="col-12 d-flex justify-content-between">
                             <h5 class="v font-weight-bold"><i class="fas fa-shuttle-van mr-2"></i></i>Trips</h5>
-                            <button class="btn btn-success justify-end" type="button" data-toggle="collapse" data-target="#collapseAdd" aria-expanded="false" aria-controls="collapseAdd" >
+                            <button class="btn btn-success justify-end" type="button" data-toggle="collapse" data-target="#collapseAdd" aria-expanded="false" aria-controls="collapseAdd" onclick="{{ url("admin/trip/add") }}" >
                                 <i class="fas fa-plus-circle mr-2"></i>Add Trip
                             </button>
                         </div>
@@ -22,22 +22,89 @@
                         <div class="card border-0 rounded px-3 py-3 my-2 shadow" >
                             <div class="row mx-5">
                                 <div class="col-12">
-                                    <form>
+                                    <form action={{route('admintrip.store')}} enctype="multipart/form-data" method="POST">
+                                        @csrf
                                         <div class="form-group">
-                                            <label for="bus">Select Bus</label>
-                                            <select  class="form-control" id="bus" aria-describedby="bus" placeholder="Select Bus"> </select>
+
+                                            <label for="bus">Select Bus </label>
+                                            <select  class="form-control" id="bus" name="bus_id" aria-describedby="bus" placeholder="Select Bus">
+
+                                                <option disabled selected> select </option>
+                                                @foreach($bus as $bus)
+                                                 @if(old('bus_id') == $bus->id)
+                                                <option value="{{ $bus->id }}" selected>{{ $bus->name }}</option>
+                                                @else
+                                                    <option value="{{ $bus->id }}">{{ $bus->name }}</option>
+                                                @endif
+                                                @endforeach
+                                            </select>
                                         </div>
                                         
                                         <div class="row">
                                             <div class="col-sm-6">
                                                 <div class="form-group">
-                                                    <label for="departure">Departure</label>
-                                                    <select  class="form-control" id="departure" aria-describedby="departure" placeholder="Select Departure"> </select>                                                </div>
+                                                    <label for="from">From</label>
+                                                    <select  class="form-control" id="from" name="from" aria-describedby="from" placeholder="Select">
+                                                        <option></option>
+                                                        <option>Jaffna</option>
+                                                        <option>Kilinochchi</option>
+                                                        <option>Mannar</option>
+                                                        <option>Mullaitivu</option>
+                                                        <option>Vavuniya</option>
+                                                        <option>Puttalam</option>
+                                                        <option>Kurunegala</option>
+                                                        <option>Anuradhapura</option>
+                                                        <option>Polonnaruwa</option>
+                                                        <option>Matale</option>
+                                                        <option>Kandy</option>
+                                                        <option>Nuwara Eliya</option>
+                                                        <option>Kegalle</option>
+                                                        <option>Ratnapura</option>
+                                                        <option>Gampaha</option>
+                                                        <option>Colombo</option>
+                                                        <option>Kalutara</option>
+                                                        <option>Trincomalee</option>
+                                                        <option>Batticaloa</option>
+                                                        <option>Ampara</option>
+                                                        <option>Badulla</option>
+                                                        <option>Monaragala</option>
+                                                        <option>Hambantota</option>
+                                                        <option>Matara</option>
+                                                        <option>Galle</option>
+                                                    </select> 
+                                                </div>
                                             </div>
                                             <div class="col-sm-6">
                                                 <div class="form-group">
-                                                <label for="arrival">Arrival</label>
-                                                    <select  class="form-control" id="arrival" aria-describedby="arrival" placeholder="Select arrival"> </select>
+                                                <label for="to">Arrival</label>
+                                                    <select  class="form-control" id="to" name="to" aria-describedby="to" placeholder="Select arrival">
+                                                        <option></option>
+                                                        <option>Jaffna</option>
+                                                        <option>Kilinochchi</option>
+                                                        <option>Mannar</option>
+                                                        <option>Mullaitivu</option>
+                                                        <option>Vavuniya</option>
+                                                        <option>Puttalam</option>
+                                                        <option>Kurunegala</option>
+                                                        <option>Anuradhapura</option>
+                                                        <option>Polonnaruwa</option>
+                                                        <option>Matale</option>
+                                                        <option>Kandy</option>
+                                                        <option>Nuwara Eliya</option>
+                                                        <option>Kegalle</option>
+                                                        <option>Ratnapura</option>
+                                                        <option>Gampaha</option>
+                                                        <option>Colombo</option>
+                                                        <option>Kalutara</option>
+                                                        <option>Trincomalee</option>
+                                                        <option>Batticaloa</option>
+                                                        <option>Ampara</option>
+                                                        <option>Badulla</option>
+                                                        <option>Monaragala</option>
+                                                        <option>Hambantota</option>
+                                                        <option>Matara</option>
+                                                        <option>Galle</option>    
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
@@ -46,7 +113,7 @@
                                             <div class="col-sm-6">
                                                 <div class="form-group">
                                                     <label for="time">Departure Time</label>
-                                                    <input type="text" class="form-control" id="time" aria-describedby="time" placeholder="Enter Departure Time">
+                                                    <input type="text" name="estimate_time" class="form-control" id="time" aria-describedby="time" placeholder="Enter Departure Time">
                                                 </div>
                                             </div>
                                         </div>
@@ -87,7 +154,7 @@
                             <div class="col-sm-2">
                                 <h6 class="text-secondary mb-1 pb-0"><i class="fas fa-dollar-sign mr-2"></i>Fare</h6> 
                             
-                                <h5 class="mt-0 pt-0 text-danger">Rs 1500</h5>
+                                <h5 class="mt-0 pt-0 text-danger">Rs 100</h5>
                             </div>
                             <div class="col-sm-2">
                                 <h6 class="text-secondary mb-1 pb-0"><i class="fas fa-chair mr-2"></i>Available / Seats</h6> 

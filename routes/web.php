@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BusController;
+use App\Http\Controllers\TripController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 /*
@@ -50,9 +51,20 @@ Route::get('/admin/trip', function() {
 // })->name('admin-bus');
 
 Route::post('/admin/bus', [BusController::class,'store'])->name('admin-bus');
+Route::post('/admin/trip', [TripController::class,'store'])->name('admin-bustrip');
+// Route::post('/admin/trip', [TripController::class,'create'])->name('admin-bustripCreate');
+
+
+// Route::get('/admin/trip', [TripController::class,'getBuses'])->name('admin-getTripbus');
+// Route::get('/admin/trip', [BusController::class,'index']);
+// Route::get('/admin/trip', [BusController::class,'create']);
+
+// Route::get('/admin/test', 'App\Http\Controllers\BusController@index');
+
 
 // Route::post('/user/bus', [BusController::class,'store'])->name('user-bus');
 
+// Route::namespace('App\Http\Controllers')->group(function () { Route::resource('admintrip', 'TripController');});
 
 
 Route::get('/admin/route', function() {

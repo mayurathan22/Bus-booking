@@ -24,28 +24,29 @@
                             <h5>AC, Luxury</h5>
                         </div>
                         <div class="col-sm-2">
-                            <h6 class="text-secondary mb-1 pb-0"><i class="fas fa-map-marker-alt mr-2"></i>Departure</h6> 
+                            <h6 class="text-secondary mb-1 pb-0"><i class="fas fa-map-marker-alt mr-2" name="from"></i>From</h6> 
                             
                             <h5 class="my-0 py-0">Batticaloa</h5>
                             <h5 class="mt-0 pt-0">06:10 AM</h5>
                         </div>
                         <div class="col-sm-2">
-                            <h6 class="text-secondary mb-1 pb-0"><i class="fas fa-map-marker-alt mr-2"></i>Arrival</h6> 
+                            <h6 class="text-secondary mb-1 pb-0"><i class="fas fa-map-marker-alt mr-2" name="to"></i>To</h6> 
                             <h5 class="mt-0 pt-0">Pettah</h5>
                         </div>
                         <div class="col-sm-2">
-                            <h6 class="text-secondary mb-1 pb-0"><i class="fas fa-dollar-sign mr-2"></i>Fare</h6> 
+                            <h6 class="text-secondary mb-1 pb-0"><i class="fas fa-dollar-sign mr-2" name="price"></i>Fare</h6> 
                         
                             <h5 class="mt-0 pt-0 text-danger">Rs 1500</h5>
                         </div>
                         <div class="col-sm-2">
                             <h6 class="text-secondary mb-1 pb-0"><i class="fas fa-chair mr-2"></i>Available / Seats</h6> 
                         
-                            <h5 class="mt-0 pt-0 text-success">15 / <span class="text-secondary">50</span></h5>
+                            <h5 class="mt-0 pt-0 text-success">7 / <span class="text-secondary">50</span></h5>
                         </div>
                         <div class="col-sm-2 d-flex align-items-end">
                         
-                            <button class="btn btn-success btn-block">Book</button>
+                            {{-- <button class="btn btn-success btn-block" onclick="{{url('/user/bus/book')}}">Book</button> --}}
+                            <a href="{{ URL::to('user/bus/book') }}" class="btn btn-success btn-block">Book</a>
                         </div>
                     </div>
                 </div>

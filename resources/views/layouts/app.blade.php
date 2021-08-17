@@ -29,7 +29,7 @@
 .login-background {
     background-image: url('{{ asset('images/cover.png') }}');
     background-size: cover;
-    background-repeat: no-repeat;
+    background-repeat: repeat-y;
     height: 100vh;
 }
 .login-img {

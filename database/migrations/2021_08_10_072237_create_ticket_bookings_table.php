@@ -18,6 +18,7 @@ class CreateTicketBookingsTable extends Migration
             $table->unsignedBigInteger('trip_id');
             $table->foreign('trip_id')->references('id')->on('trips');
             $table->string('passenger_name');
+            $table->integer('seat_no');
             $table->tinyInteger('mobile_number')->unique();
             $table->timestamps();
         });

@@ -21,8 +21,33 @@
                         <h5 class="mb-0 font-weight-bold"><i class="fas fa-file-invoice-dollar mr-2"></i></i>Booked Receipts</h5>
                     </div>
                     <div class="card border-0 rounded px-3 py-3 my-2 shadow" >
-                    <div class="row mx-5">
-                            Booked Receipts Loading...
+                    <div class="row mx-2">
+                            <div class="col-sm-8 sol-md-6 card border shadow py-3 px-5" >
+                                <div class="text-center">
+                                    <h4 class="font-weight-bold">Batticaloa --> Pettah</h4>
+                                </div>
+                                <hr />
+                                <div class="d-flex justify-content-between">
+                                    <h5>Raja Travvels</h5>
+                                    <h5>Ac, Luxury</h5>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <h5>Passenger Name</h5>
+                                    <h5>0767807573</h5>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <h5>Seat Number</h5>
+                                    <h5>26</h5>
+                                </div>
+                                <hr />
+                                <div class="d-flex justify-content-between">
+                                    <h5>Fare</h5>
+                                    <h5>Rs 1500</h5>
+                                </div>
+                                <div class="d-flex align-items-end mt-3">
+                                    <button class="btn btn-danger ">Delete</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
 

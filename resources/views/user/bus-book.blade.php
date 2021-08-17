@@ -55,13 +55,13 @@
                                     <h5>AC, Luxury</h5>
                                 </div>
                                 <div class="col-sm-4">
-                                    <h6 class="text-secondary mb-1 pb-0"><i class="fas fa-map-marker-alt mr-2"></i>Departure</h6> 
+                                    <h6 class="text-secondary mb-1 pb-0"><i class="fas fa-map-marker-alt mr-2" name="from"></i>Departure</h6> 
                                     <h5 class="my-0 py-0">Batticaloa</h5>
                                     <h5 class="mt-0 pt-0">06:10 AM</h5>
                                   
                                 </div>
                                 <div class="col-sm-4">
-                                    <h6 class="text-secondary mb-1 pb-0"><i class="fas fa-map-marker-alt mr-2"></i>Arrival</h6> 
+                                    <h6 class="text-secondary mb-1 pb-0"><i class="fas fa-map-marker-alt mr-2" name="to"></i>Arrival</h6> 
                                     <h5 class="mt-0 pt-0">Pettah</h5>
                                 </diV>
                             </div>
@@ -73,27 +73,30 @@
                                     <form>
                                         <div class="form-group">
                                             <label for="name">Name</label>
-                                            <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Enter Name">
+                                            <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Enter Name" name="passenger_name" required>
                                         </div>
                                         
                                         <div class="form-group">
                                             <label for="mobileNumber">Mobile Number</label>
-                                            <input type="text" class="form-control" id="mobileNumber" aria-describedby="mobileNumber" placeholder="Enter Mobile Number">
+                                            <input type="text" class="form-control" id="mobileNumber" aria-describedby="mobileNumber" placeholder="Enter Mobile Number" name="mobile_number" required>
                                         </div>
 
                                         <div class="form-group">
                                             <label for="seats">Seat</label>
-                                            <select  class="form-control" id="seats" aria-describedby="seats" placeholder="Select Seat"> </select>
+                                            <select  class="form-control" id="seats" aria-describedby="seats" placeholder="Select Seat" name="seat_no" required>
+                                                <option>1</option>
+                                            </select>
                                         </div>
                                         
                                         
-                                        <button type="submit"  class="btn btn-success btn-block">Confirm Booking</button>
+                                        {{-- <button type="submit"  class="btn btn-success btn-block">Confirm Booking</button> --}}
+                                         <a href="{{ URL::to('user/dashboard') }}" class="btn btn-success btn-block">Confirm Booking</a>
                                     </form>
                                 </div>
                                 <div class="col-4 d-flex align-items-center justify-content-center">
                                         <div>
-                                            <h4><i class="fas fa-dollar-sign mr-2" id="myBtn"></i>Total Fare</h4>
-                                            <h2 class="text-danger">Rs 3000</h2>
+                                            <h4><i class="fas fa-dollar-sign mr-2" id="myBtn"></i>Fare</h4>
+                                            <h2 class="text-danger">Rs 1500</h2>
                                         </div>
                                 </div>
                             </div>

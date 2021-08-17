@@ -26,16 +26,17 @@ class BusController extends Controller
             // return new BusResource($bus);
         }
     }
-    public function show($id){
-        $ticket=TicketBooking::findOrFail($id);
-        // return new BusResource($bus);
+    public function show($id)
+    {
+        dd($id);
+        try {
+            $ticket = TicketBooking::findOrFail($id);
+        
+        } catch (\Exception $exception ) {
+            abort(404);
+        }
+        return view('user.bus');
     }
 
    
-    public function destroy($id){
-       $ticket=TicketBooking::findOrFail($id);
-       if($ticket->delete()){
-        //    return 
-       }
-    }
 }

@@ -17,7 +17,7 @@ class Trip extends Model
         'bus_id',
         'from',
         'to',
-        'available_seat',
+        // 'available_seat',
         'estimate_time'
     ];
     
