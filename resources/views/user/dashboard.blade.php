@@ -8,7 +8,7 @@
                 <div class="card-header">
                     <h5 class="mb-0 font-weight-bold"><i class="fas fa-user  mr-2"></i></i>Dashboard</h5>
                 </div>
-
+{{-- {{$buses}} --}}
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
@@ -20,36 +20,49 @@
                     <div class="card-header mt-3 mb-2">
                         <h5 class="mb-0 font-weight-bold"><i class="fas fa-file-invoice-dollar mr-2"></i></i>Booked Receipts</h5>
                     </div>
+
+                    <table id="cart" class="table table-borderless table-hover">
+                        <tbody>
+                           
+                            @foreach ($booking as $item)
                     <div class="card border-0 rounded px-3 py-3 my-2 shadow" >
                     <div class="row mx-2">
                             <div class="col-sm-8 sol-md-6 card border shadow py-3 px-5" >
                                 <div class="text-center">
-                                    <h4 class="font-weight-bold">Batticaloa --> Pettah</h4>
+                                    <h4 class="font-weight-bold">{{$item->trip($item->trip_id)->from}} --> {{$item->trip($item->trip_id)->to}}</h4>
                                 </div>
                                 <hr />
                                 <div class="d-flex justify-content-between">
-                                    <h5>Raja Travvels</h5>
-                                    <h5>Ac, Luxury</h5>
+                                    <h5>{{$item->trip($item->trip_id)->bus($item->trip($item->trip_id)->bus_id)->name}}</h5>
+                                    <h5>{{$item->trip($item->trip_id)->bus($item->trip($item->trip_id)->bus_id)->description}}</h5>
                                 </div>
                                 <div class="d-flex justify-content-between">
                                     <h5>Passenger Name</h5>
-                                    <h5>0767807573</h5>
+                                    <h5>{{$item->passenger_name}}</h5>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <h5>Mobile number</h5>
+                                    <h5>{{$item->mobile_number}}</h5>
                                 </div>
                                 <div class="d-flex justify-content-between">
                                     <h5>Seat Number</h5>
-                                    <h5>26</h5>
+                                    <h5>{{$item->seat_no}}</h5>
                                 </div>
                                 <hr />
                                 <div class="d-flex justify-content-between">
                                     <h5>Fare</h5>
-                                    <h5>Rs 1500</h5>
+                                    <h5>Rs {{$item->trip($item->trip_id)->bus($item->trip($item->trip_id)->bus_id)->price}}</h5>
                                 </div>
                                 <div class="d-flex align-items-end mt-3">
-                                    <button class="btn btn-danger ">Delete</button>
+                                    {{-- <button class="btn btn-danger ">Delete</button> --}}
+                                    <a href={{"dashboard/delete/".$item['id']}} class="btn btn-danger">Delete</a>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    @endforeach
+                        </tbody>
+                    </table>
 
                 </div>
             </div>
