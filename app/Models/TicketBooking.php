@@ -19,4 +19,7 @@ class TicketBooking extends Model
         'seat_no',
         'mobile_number'
     ];
+    public function trip($id){
+        return $trip=Trip::findOrFail($id);
+    }
 }

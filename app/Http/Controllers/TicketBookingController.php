@@ -3,28 +3,36 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\BusResource;
 use App\Models\TicketBooking;
+use App\Models\Trip;
 use Illuminate\Http\Request;
 
-class BusController extends Controller
+class TicketBookingController extends Controller
 {
-    public function index(){
-        $tickets=TicketBooking::paginate(10);
-        return view ('bus');
+    public function index($id){
+        $trip=Trip::find($id);
+        // dd($trip);
+        $tickets=TicketBooking::get();
+        return view ('user.bus-book',compact('trip','tickets'));
     }
 
-    public function create(){
+    // public function create($id){
+    // $tripId=Trip::where('id',$id)->first()->trip_id;
+    //  return view ('user.bus-book');    
        
-    }
+    // }
 
-    public function store(Request $request){
-       $ticket=new TicketBooking();
-       $ticket->schedule_id=$request->schedule_id;
-       $ticket->seat_no=$request->seat_no;
-       $ticket->mobile_number=$request->mobile_number ;
+    public function store(Request $request,$id){
+        // dd($request->all(),$id);
+        $ticket=new TicketBooking();
+        $ticket->trip_id=$id;
+        $ticket->passenger_name=$request->passenger_name;
+        $ticket->seat_no=$request->seat_no;
+        $ticket->mobile_number=$request->mobile_number ;
+        $ticket->save();
+        // dd($ticket);
+        return redirect('user/dashboard');
 
-        if($ticket->save()){
-            // return new BusResource($bus);
-        }
+       
     }
     public function show($id)
     {

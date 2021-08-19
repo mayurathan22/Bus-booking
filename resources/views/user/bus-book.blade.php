@@ -16,7 +16,7 @@
                                            Front
                                        </h4> 
                                     </div>
-</div>
+                            </div>
                                     <div class="row pl-2">
                                         @for ($i = 1; $i <= 50; $i++) 
                                             @if($i  == 3 || $i  == 8 || $i  == 13 || $i  == 18 || $i  == 23 || $i  == 28 || $i  == 33 || $i  == 38 || $i  == 43 )
@@ -49,20 +49,21 @@
                     <div class="col-sm-6">
                         <div class="card border-1 rounded p-2">
                             <div class="row ">
+                                
                                 <div class="col-sm-4">
                                     <h6 class="text-secondary mb-1 pb-0"><i class="fas fa-bus-alt mr-2"></i>Bus</h6> 
-                                    <h5 class="my-0 py-0">Raja Travels</h5>
-                                    <h5>AC, Luxury</h5>
+                                    <h5 class="my-0 py-0">{{$trip->bus($trip->bus_id)->name}}</h5>
+                                    <h5>{{$trip->bus($trip->bus_id)->description}}</h5>
                                 </div>
                                 <div class="col-sm-4">
                                     <h6 class="text-secondary mb-1 pb-0"><i class="fas fa-map-marker-alt mr-2" name="from"></i>Departure</h6> 
-                                    <h5 class="my-0 py-0">Batticaloa</h5>
+                                    <h5 class="my-0 py-0">{{$trip->from}}</h5>
                                     <h5 class="mt-0 pt-0">06:10 AM</h5>
                                   
                                 </div>
                                 <div class="col-sm-4">
                                     <h6 class="text-secondary mb-1 pb-0"><i class="fas fa-map-marker-alt mr-2" name="to"></i>Arrival</h6> 
-                                    <h5 class="mt-0 pt-0">Pettah</h5>
+                                    <h5 class="mt-0 pt-0">{{$trip->to}}</h5>
                                 </diV>
                             </div>
                         </div>
@@ -70,7 +71,8 @@
                         <div class="card border-1 rounded p-2 my-2">
                             <div class="row ">
                                 <div class="col-8">
-                                    <form>
+                                    <form method="POST" enctype="multipart/form-data" action={{route('user-bus-book-store',$trip->id)}}>
+                                        @csrf
                                         <div class="form-group">
                                             <label for="name">Name</label>
                                             <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Enter Name" name="passenger_name" required>
@@ -85,18 +87,27 @@
                                             <label for="seats">Seat</label>
                                             <select  class="form-control" id="seats" aria-describedby="seats" placeholder="Select Seat" name="seat_no" required>
                                                 <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                                <option>6</option>
+                                                <option>7</option>
+                                                <option>8</option>
+                                                <option>9</option>
+                                                <option>10</option>
                                             </select>
                                         </div>
                                         
                                         
-                                        {{-- <button type="submit"  class="btn btn-success btn-block">Confirm Booking</button> --}}
-                                         <a href="{{ URL::to('user/dashboard') }}" class="btn btn-success btn-block">Confirm Booking</a>
+                                        <button type="submit"  class="btn btn-success btn-block">Confirm Booking</button>
+                                         {{-- <a href="{{ "bus/".$trip['id']."/book" }}" class="btn btn-success btn-block">Confirm Booking</a> --}}
                                     </form>
                                 </div>
                                 <div class="col-4 d-flex align-items-center justify-content-center">
                                         <div>
                                             <h4><i class="fas fa-dollar-sign mr-2" id="myBtn"></i>Fare</h4>
-                                            <h2 class="text-danger">Rs 1500</h2>
+                                            <h2 class="text-danger">Rs {{$trip->bus($trip->bus_id)->price}}</h2>
                                         </div>
                                 </div>
                             </div>
