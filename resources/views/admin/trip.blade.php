@@ -22,12 +22,12 @@
                         <div class="card border-0 rounded px-3 py-3 my-2 shadow" >
                             <div class="row mx-5">
                                 <div class="col-12">
-                                    <form action={{route('admintrip.store')}} enctype="multipart/form-data" method="POST">
+                                    <form action={{route('admin-trip')}} enctype="multipart/form-data" method="POST">
                                         @csrf
                                         <div class="form-group">
 
                                             <label for="bus">Select Bus </label>
-                                            <select  class="form-control" id="bus" name="bus_id" aria-describedby="bus" placeholder="Select Bus">
+                                            <select  class="form-control" id="bus" name="bus_id" aria-describedby="bus" placeholder="Select Bus" required>
 
                                                 <option disabled selected> select </option>
                                                 @foreach($bus as $bus)
@@ -44,7 +44,7 @@
                                             <div class="col-sm-6">
                                                 <div class="form-group">
                                                     <label for="from">From</label>
-                                                    <select  class="form-control" id="from" name="from" aria-describedby="from" placeholder="Select">
+                                                    <select  class="form-control" id="from" name="from" aria-describedby="from" placeholder="Select" required>
                                                         <option></option>
                                                         <option>Jaffna</option>
                                                         <option>Kilinochchi</option>
@@ -76,8 +76,8 @@
                                             </div>
                                             <div class="col-sm-6">
                                                 <div class="form-group">
-                                                <label for="to">Arrival</label>
-                                                    <select  class="form-control" id="to" name="to" aria-describedby="to" placeholder="Select arrival">
+                                                <label for="to">To</label>
+                                                    <select  class="form-control" id="to" name="to" aria-describedby="to" placeholder="Select arrival" required>
                                                         <option></option>
                                                         <option>Jaffna</option>
                                                         <option>Kilinochchi</option>
@@ -113,7 +113,7 @@
                                             <div class="col-sm-6">
                                                 <div class="form-group">
                                                     <label for="time">Departure Time</label>
-                                                    <input type="text" name="estimate_time" class="form-control" id="time" aria-describedby="time" placeholder="Enter Departure Time">
+                                                    <input type="text" name="estimate_time" class="form-control" id="time" aria-describedby="time" placeholder="Enter Departure Time" required>
                                                 </div>
                                             </div>
                                         </div>
@@ -133,40 +133,48 @@
                     <div class="card-header mt-3 mb-2">
                         <h5 class="mb-0 font-weight-bold"><i class="fas fa-shuttle-van mr-2"></i></i>Available Trips</h5>
                     </div>
-                    
+                    <table id="cart" class="table table-borderless table-hover">
+                        <tbody>
+                            {{-- {{$trip}} --}}
+                            {{-- {{$bus}} --}}
+                            @foreach ($trip as $item)
+                            {{-- {{$item->bus}} --}}
                     <div class="card border-0 rounded px-3 py-3 my-2 shadow" >
                         <div class="row">
                             <div class="col-sm-2">
                                 <h6 class="text-secondary mb-1 pb-0"><i class="fas fa-bus-alt mr-2"></i>Bus</h6> 
-                                <h5 class="my-0 py-0">Raja Travels</h5>
-                                <h5>AC, Luxury</h5>
+                                {{-- {{$item->bus($item->bus_id)}} --}}
+                                <h5 class="my-0 py-0">{{$item->bus($item->bus_id)->name}}</h5>                                    
+                                <h5>{{$item->bus($item->bus_id)->description}}</h5>
                             </div>
                             <div class="col-sm-2">
                                 <h6 class="text-secondary mb-1 pb-0"><i class="fas fa-map-marker-alt mr-2"></i>Departure</h6> 
                                 
-                                <h5 class="my-0 py-0">Batticaloa</h5>
-                                <h5 class="mt-0 pt-0">06:10 AM</h5>
+                                <h5 class="my-0 py-0">{{$item->from}}</h5>
+                                <h5 class="mt-0 pt-0">{{$item->bus($item->bus_id)->estimate_time}}</h5>
                             </div>
                             <div class="col-sm-2">
                                 <h6 class="text-secondary mb-1 pb-0"><i class="fas fa-map-marker-alt mr-2"></i>Arrival</h6> 
-                                <h5 class="mt-0 pt-0">Pettah</h5>
+                                <h5 class="mt-0 pt-0">{{$item->to}}</h5>
                             </div>
                             <div class="col-sm-2">
                                 <h6 class="text-secondary mb-1 pb-0"><i class="fas fa-dollar-sign mr-2"></i>Fare</h6> 
                             
-                                <h5 class="mt-0 pt-0 text-danger">Rs 100</h5>
+                                <h5 class="mt-0 pt-0 text-danger">Rs {{$item->bus($item->bus_id)->price}} </h5>
                             </div>
                             <div class="col-sm-2">
                                 <h6 class="text-secondary mb-1 pb-0"><i class="fas fa-chair mr-2"></i>Available / Seats</h6> 
                             
-                                <h5 class="mt-0 pt-0 text-success">15 / <span class="text-secondary">50</span></h5>
+                                <h5 class="mt-0 pt-0 text-success">15 / <span class="text-secondary">{{$item->bus($item->bus_id)->total_seat}}</span></h5>
                             </div>
                             <div class="col-sm-2 d-flex align-items-end">
-                                <button class="btn btn-danger btn-block shadow">Delete</button>
+                                <a href={{"trip/delete/".$item['id']}} class="btn btn-danger btn-block shadow">Delete</a>
+                                {{-- <button class="btn btn-danger btn-block shadow">Delete</button> --}}
                             </div>
                         </div>
                     </div>
-
+                    @endforeach
+                </table>
                 </div>
             </div>
         </div>

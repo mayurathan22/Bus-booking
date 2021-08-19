@@ -21,7 +21,11 @@ class Trip extends Model
         'estimate_time'
     ];
     
-    public function bus(){
-        return $this->belongsToMany(Bus::class);
+    public function bus($id){
+        // return $this->belongsTo(Bus::class,'bus_id');
+        return $bus=Bus::findOrFail($id);
+    }
+    public function ticketbooking($id){
+        return $this->hasMany(TicketBooking::class,'trip_id','id');
     }
 }
