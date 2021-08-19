@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Bus;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -26,7 +26,7 @@ class HomeController extends Controller
         // dd(auth()->user()->roleusers->roles->id);
         if(auth()->user()->roleusers->roles->id==1){
 
-            return redirect(route('admin-home'));
+            return redirect(route('admin-homeIndex'));
         }
         else
         {
@@ -36,11 +36,13 @@ class HomeController extends Controller
 
     public function adminIndex()
     {
-        return view('admin.bus');
+        $buses = Bus::get();
+        // dd($bus);
+        // dd("dds");
+        return view('admin.bus',compact('buses'));
     }
+    public function userbusSample(){
 
-    // public function userDashboard()
-    // {
-    //     return view('user.dashboard');
-    // }
+    }
+   
 }
