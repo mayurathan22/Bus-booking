@@ -21,7 +21,7 @@ class Bus extends Model
     ];
 
     public function trip(){
-        return $this->belongsToMany(Trip::class);
+        return $this->hasMany(Trip::class,'bus_id','id');
     }
 
     public function busroute(){

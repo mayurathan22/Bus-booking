@@ -63,32 +63,39 @@
                     <div class="card-header mt-3 mb-2">
                         <h5 class="mb-0 font-weight-bold"><i class="fas fa-bus mr-2"></i></i>Available Buses</h5>
                     </div>
+                    <table id="cart" class="table table-borderless table-hover">
+                        <tbody>
+                            @foreach ($buses as $item)
+                            {{-- {{$bus}} --}}
                     <div class="card border-0 rounded px-3 py-3 my-2 shadow" >
                         <div class="row ">
                                 <div class="col-sm-2">
                                     <h6 class="text-secondary mb-1 pb-0"><i class="fas fa-bus-alt mr-2"></i>Bus</h6> 
-                                    <h5 class="my-0 py-0">Raja Travels</h5>
+                                    <h5 class="my-0 py-0">{{$item->name}}</h5>
                                 </div>
                                 <div class="col-sm-2">
                                     <h6 class="text-secondary mb-1 pb-0"><i class="fas fa-bus-alt mr-2"></i>Description</h6> 
-                                    <h5 class="my-0 py-0">AC, Luxury</h5>
+                                    <h5 class="my-0 py-0">{{$item->description}}</h5>
                                 </div>
                                 <div class="col-sm-2">
                                     <h6 class="text-secondary mb-1 pb-0"><i class="fas fa-dollar-sign mr-2"></i>Fare</h6> 
                                 
-                                    <h5 class="mt-0 pt-0 text-danger">Rs 1500</h5>
+                                    <h5 class="mt-0 pt-0 text-danger">Rs {{$item->price}}</h5>
                                 </div>
                                 <div class="col-sm-2">
                                     <h6 class="text-secondary mb-1 pb-0"><i class="fas fa-chair mr-2"></i>Total Seats</h6> 
                                 
-                                    <h5 class="mt-0 pt-0 text-success">50</h5>
+                                    <h5 class="mt-0 pt-0 text-success">{{$item->total_seat}}</h5>
                                 </div>
                                 <div class="col-sm-3 d-flex align-items-end">
-                                    <button class="btn btn-danger btn-block shadow">Delete</button>
+                                    {{-- <button class="btn btn-danger btn-block shadow" type="submit" {{ url('admun/bus/{{ $bus->id }}') }} type="">Delete</button> --}}
+                                    <a href={{"bus/delete/".$item['id']}} class="btn btn-danger btn-block shadow">Delete</a>
                                 </div>
                             
                         </div>
                     </div>
+                    @endforeach
+                    </table>
 
                 </div>
             </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Http\Resources\BusResource;
 use Illuminate\Support\Facades\DB;
 use App\Models\Bus;
+use App\Models\Trip;
 use Illuminate\Http\Request;
 
 class BusController extends Controller
@@ -11,7 +12,19 @@ class BusController extends Controller
     public function index(){
         // dd("dsds");
         $buses=Bus::paginate(10);
-        return view ('admin.bus');
+        $buses = Bus::get();
+        // dd($buses);
+        // dd("dds");
+        return view('admin.bus',compact('buses'));
+    }
+    public function userBusIndex()
+    {
+        // dd("dds");
+        $buses = Bus::get();
+        $trips=Trip::get();
+        // $trips=Bus::find($bus_id)->trips;
+        // dd($trips);
+        return view('user.bus',compact('trips','buses'));
     }
 
     public function store(Request $request){
@@ -28,7 +41,7 @@ class BusController extends Controller
 
     public function show($id)
     {
-        dd($id);
+        // dd($id);
         try {
             $bus = Bus::findOrFail($id);
         
@@ -36,6 +49,14 @@ class BusController extends Controller
             abort(404);
         }
         return view('admin.bus');
+    }
+
+    public function destroy($id)
+    {
+        $bus=Bus::find($id);
+        // dd($bus);
+        $bus->delete();
+        return redirect('/admin/bus')->with(['message'=> 'Successfully deleted!!']);
     }
    
 }
