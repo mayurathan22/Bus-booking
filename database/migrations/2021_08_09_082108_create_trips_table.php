@@ -16,12 +16,13 @@ class CreateTripsTable extends Migration
         Schema::create('trips', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('bus_id');
-            $table->foreign('bus_id')->references('id')->on('buses');
+            $table->foreign('bus_id')->references('id')->on('buses')->onDelete('cascade');
             $table->string('from');
             $table->string('to');
             // $table->integer('available_seat');
             $table->time('estimate_time');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
