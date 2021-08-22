@@ -5,6 +5,7 @@
     <div class="row">
         <div class="col-md-9">
             <div class="card">
+                @if(auth()->user()->id==1)
                 <div class="card-header">
                     <div class="row">
                         <div class="col-12 d-flex justify-content-between">
@@ -113,7 +114,7 @@
                                             <div class="col-sm-6">
                                                 <div class="form-group">
                                                     <label for="time">Departure Time</label>
-                                                    <input type="text" name="estimate_time" class="form-control" id="time" aria-describedby="time" placeholder="Enter Departure Time" required>
+                                                    <input type="text" name="estimate_time" class="form-control" id="time" aria-describedby="time" placeholder="Enter Departure Time (hh:mm:ss)" required>
                                                 </div>
                                             </div>
                                         </div>
@@ -197,6 +198,9 @@
                 </div>
             
         </div>
+        @else
+        <h3> unauthorized user</h3>
+        @endif
     </div>
 </div>
 @endsection

@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Bus;
 use App\Models\Trip;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Validator;
 class BusController extends Controller
 {
     public function index(){
@@ -28,7 +28,35 @@ class BusController extends Controller
     }
 
     public function store(Request $request){
-        
+
+        $input = $request->all();
+        $validator = Validator::make($input, [
+            'name' => 'required|unique:buses,name',
+            'total_seat'=>'required|max:50|min:1',
+            'price'=>'required|min:1',
+            'description' =>'required'
+
+        ],[
+            'name.required'=>'Bus name is required',
+            'name.unique'=>' this Bus name is alredy entered',
+            'total_seat.required'=>'total seat  is required',
+            'price.required'=>'price  is required',
+            'description.required'=>'description is required',
+
+        ]);
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
+
+        // $request->validate([
+        //     'name' => 'required',
+        //     'description' => 'required'
+        // ],
+        // [
+        //     'name.required' => 'You have to choose the file!',
+        //     'description.required' => 'You have to choose type of the file!'
+        // ]);
+
         $bus=new Bus ;
         $bus-> name = $request->name;
         $bus-> total_seat = $request->total_seat;
