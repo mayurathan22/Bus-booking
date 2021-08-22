@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Bus;
+use App\Models\TicketBooking;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -30,7 +31,8 @@ class HomeController extends Controller
         }
         else
         {
-            return view('user.dashboard');
+            return redirect(route('user-homeIndex'));
+            // return view('user.dashboard');
         }
     }
 
@@ -41,8 +43,9 @@ class HomeController extends Controller
         // dd("dds");
         return view('admin.bus',compact('buses'));
     }
-    public function userbusSample(){
-
+    public function userIndex(){
+        $booking=TicketBooking::get();
+        return view('user.dashboard',compact('booking'));
     }
    
 }

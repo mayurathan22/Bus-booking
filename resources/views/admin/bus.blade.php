@@ -27,24 +27,30 @@
                                         @csrf
                                             <div class="form-group">
                                                 <label for="name">Bus Name</label>
-                                                <input type="text" class="form-control" name="name" id="name" aria-describedby="name" placeholder="Enter Bus Name" required>
+                                                <input type="text" class="form-control" name="name" value="{{old('name')}}" id="name" aria-describedby="name" placeholder="Enter Bus Name" >
+                                                @if ($errors->has('name'))
+                                                <div class="error">
+                                                    {{ $errors->first('name') }}
+                                                </div>
+                                            @endif
+                                            {{-- {{$errors}} --}}
                                             </div>
                                             
                                             <div class="form-group">
                                                 <label for="description">Description</label>
-                                                <input type="text" class="form-control" name="description" id="description" aria-describedby="description" placeholder="Enter Bus Description" required>
+                                                <input type="text" class="form-control" name="description" id="description" aria-describedby="description" placeholder="Enter Bus Description" >
                                             </div>
                                             <div class="row">
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
                                                         <label for="seats">Total Seats</label>
-                                                        <input type="text" class="form-control" name="total_seat" id="total_seat" aria-describedby="seats" placeholder="Enter Total Seats Count" required>
+                                                        <input type="text" maxlength="2" class="form-control" name="total_seat" id="total_seat" aria-describedby="seats" placeholder="Enter Total Seats Count" >
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
                                                         <label for="fare">Fare</label>
-                                                        <input type="text" class="form-control" name="price" id="price" aria-describedby="fare" placeholder="Enter fare" required>
+                                                        <input type="text" class="form-control" name="price" id="price" aria-describedby="fare" placeholder="Enter fare" >
                                                     </div>
                                                 </div>
                                             </div>
