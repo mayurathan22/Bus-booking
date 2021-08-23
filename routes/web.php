@@ -60,29 +60,18 @@ Route::group(['middleware'=>['protectPages']],function(){
 
 
 
-// Route::get('/user/bus','App\Http\Controllers\BusController@userBusIndex')->name('user-getBuses');
+Route::get('/','App\Http\Controllers\BusController@guestIndex');
 
 
 // Login, Register
-Route::get('/', function() {
-    return view('auth.login');
-});
+// Route::get('/', function() {
+//     return view('auth.login');
+// });
 
 
 
 
-// user Routes
-// Route::get('/user/dashboard', function() {
-//     return view('user.dashboard');
-// })->name('user-dashboard');
 
-// Route::get('/user/bus', function() {
-//     return view('user.bus');
-// })->name('user-bus');
-
-// Route::get('/user/bus/book', function() {
-//     return view('user.bus-book');
-// })->name('user-bus-book');
 
 
 

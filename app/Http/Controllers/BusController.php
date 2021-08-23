@@ -26,6 +26,15 @@ class BusController extends Controller
         // dd($trips);
         return view('user.bus',compact('trips','buses'));
     }
+    
+    public function guestIndex()
+    {
+        $buses = Bus::get();
+        $trips=Trip::get();
+        // $trips=Bus::find($bus_id)->trips;
+        // dd($trips);
+        return view('GuestDashboard',compact('trips','buses'));
+    }
 
     public function store(Request $request){
 
