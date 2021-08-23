@@ -11,8 +11,8 @@ class DashboardController extends Controller
 {
     public function index(){
         // dd("dsds");
-        $booking=TicketBooking::get();
-        
+        $booking=TicketBooking::paginate(1);
+
         return view('user.dashboard',compact('booking'));
     }
 

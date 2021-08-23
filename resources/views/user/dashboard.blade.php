@@ -63,7 +63,9 @@
                     @endforeach
                         </tbody>
                     </table>
-
+                    <div class="d-flex justify-content-center">
+                    {{$booking->links('pagination::bootstrap-4')}}
+                    </div>
                 </div>
             </div>
         </div>
