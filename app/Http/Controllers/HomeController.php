@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Bus;
 use App\Models\TicketBooking;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -24,9 +25,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        // dd(auth()->user()->roleusers->roles->id);
-        if(auth()->user()->roleusers->roles->id==1){
-
+        $user_id = auth()->user()->id;
+        $result = DB::table('role_users')->where('user_id', $user_id)->first();
+        
+        if($result->role_id==1){
             return redirect(route('admin-homeIndex'));
         }
         else
@@ -44,7 +46,12 @@ class HomeController extends Controller
         return view('admin.bus',compact('buses'));
     }
     public function userIndex(){
-        $booking=TicketBooking::get();
+        // $booking=TicketBooking::paginate(1);
+        $user_id = auth()->user()->id;
+        $booking = DB::table('ticket_bookings')->where('user_id', $user_id)
+        ->join('trips', 'ticket_bookings.trip_id', '=', 'trips.id')
+        ->get();
+        // dd($booking);
         return view('user.dashboard',compact('booking'));
     }
    
