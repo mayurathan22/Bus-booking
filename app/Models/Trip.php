@@ -18,7 +18,8 @@ class Trip extends Model
         'from',
         'to',
         // 'available_seat',
-        'estimate_time'
+        'estimate_time',
+        'date'
     ];
     
     public function bus($id){

@@ -16,9 +16,15 @@ class TicketBooking extends Model
     protected $fillable=[
         'trip_id',
         'passenger_name',
-        'seat_no',
-        'mobile_number'
+        // 'seat_no',
+        'mobile_number',
+        'user_id',
     ];
+
+    protected $casts = [
+        'seat_no' => 'array'
+    ];
+
     public function trip($id){
         return $trip=Trip::findOrFail($id);
     }
