@@ -10,6 +10,9 @@
     <title>Bus Booking</title>
 
     <!-- Scripts -->
+    <script src="{{ asset('js/main.js') }}" defer></script>
+    
+    <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
@@ -74,25 +77,46 @@
                                 </a>	
                             </li>
                         @endif
-                         @else
-                    <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->name }}
-                        </a>
+                        @else
+                        @if(auth()->user()->id==1)
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{  route('admin-bus') }}" >Bus</a>	
+                        </li>
 
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('logout') }}"
-                               onclick="event.preventDefault();
-                                             document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{  route('admin-trip') }}" >Trip</a>	
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{  route('admin-booked-users') }}" >Booked User</a>	
+                        </li>
+                        
+                        @else
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{  route('user-dashboard') }}" >Dashboard</a>	
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{  route('user-bus') }}" >Bus</a>	
+                        </li>
+                        @endif
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ Auth::user()->name }}
                             </a>
 
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
-                        </div>
-                    </li>
-                     @endguest
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
+                        @endguest
 					
 					
 				 </ul>
