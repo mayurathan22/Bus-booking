@@ -39,10 +39,10 @@ Route::group(['middleware'=>['protectPages']],function(){
     Route::get('/admin/trip', [App\Http\Controllers\TripController::class, 'Index'])->name('admintrip-index');
     Route::get('admin/trip/delete/{id}',[TripController::class, 'destroy']);
     
-    
-    Route::get('/admin/route', function() {
-        return view('admin.route');
-    })->name('admin-route');
+    Route::get('/admin/booked/users', [App\Http\Controllers\TripController::class, 'User'])->name('admin-booked-users');
+    // Route::get('/admin/booked/users', function() {
+    //     return view('admin.booked-users');
+    // })->name('admin-booked-users');
 
     Route::get('/admin/bus.', 'App\Http\Controllers\HomeController@adminIndex')->name('admin-homeIndex');
     Route::get('admin/bus/delete/{id}',[BusController::class, 'destroy']);
@@ -67,7 +67,6 @@ Route::get('/','App\Http\Controllers\BusController@guestIndex');
 // Route::get('/', function() {
 //     return view('auth.login');
 // });
-
 
 
 
