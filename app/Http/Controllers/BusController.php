@@ -41,14 +41,12 @@ class BusController extends Controller
         $input = $request->all();
         $validator = Validator::make($input, [
             'name' => 'required|unique:buses,name',
-            'total_seat'=>'required|max:50|min:1',
             'price'=>'required|min:1',
             'description' =>'required'
 
         ],[
             'name.required'=>'Bus name is required',
             'name.unique'=>' this Bus name is alredy entered',
-            'total_seat.required'=>'total seat  is required',
             'price.required'=>'price  is required',
             'description.required'=>'description is required',
 
@@ -68,7 +66,7 @@ class BusController extends Controller
 
         $bus=new Bus ;
         $bus-> name = $request->name;
-        $bus-> total_seat = $request->total_seat;
+        $bus-> total_seat = 45;
         $bus-> price = $request->price;
         $bus-> description = $request->description;
         $bus->save();

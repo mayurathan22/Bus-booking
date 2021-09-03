@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Bus;
+use App\Models\TicketBooking;
 use App\Models\Trip;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Facades\DB;
+
 class TripController extends Controller
 {
     public function index(){
@@ -46,7 +49,8 @@ class TripController extends Controller
         $trip->bus_id=$request->bus_id;
         $trip->from=$request->from;
         $trip->to=$request->to;
-        $trip->estimate_time=$request->estimate_time;
+        $trip->estimate_time=$request->time;
+        $trip->date=$request->date;
         // $trip->available_seat=$request->available_seat;
         $trip->save();
         // $trip->bus()->attach($bus);
@@ -81,5 +85,15 @@ class TripController extends Controller
         $trip=Trip::find($id);
         $trip->delete();
         return redirect('/admin/trip')->with(['message'=> 'Successfully deleted!!']);
+    }
+
+    public function user()
+    {
+        // $result = DB::table('ticket_Bookings')->get();
+        $booking = DB::table('ticket_bookings')
+        ->join('trips', 'ticket_bookings.trip_id', '=', 'trips.id')
+        ->get();
+        // dd($booking);
+       return view('admin.booked-users', compact('booking'));
     }
 }
