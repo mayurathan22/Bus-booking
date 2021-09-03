@@ -21,6 +21,7 @@ class CreateTripsTable extends Migration
             $table->string('to');
             // $table->integer('available_seat');
             $table->time('estimate_time');
+            $table->date('date');
             $table->timestamps();
             $table->softDeletes();
         });

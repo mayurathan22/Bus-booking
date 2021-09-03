@@ -17,8 +17,9 @@ class CreateTicketBookingsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('trip_id');
             $table->foreign('trip_id')->references('id')->on('trips')->onDelete('cascade');
+            $table->integer('user_id');
             $table->string('passenger_name');
-            $table->integer('seat_no');
+            $table->json('seat_no');
             $table->integer('mobile_number')->unique();
             $table->timestamps();
             $table->softDeletes();
